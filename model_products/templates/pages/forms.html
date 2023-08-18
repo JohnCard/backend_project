@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        form{
+            background-color: darkslategrey;
+            padding: 15px 35px;
+            width: 900px;
+            display: inline-block;
+            border-radius: 30px;
+        }
+        input{
+            background-color: dimgrey;
+            padding: 7px 15px;
+            font-weight: bold;
+            font-size: 20px;
+            color:white;
+            border-radius: 15px; 
+            margin-left: 20px;
+        }
+        label{
+            font-size: 20px;
+            font-weight: bold;
+        }
+        [value='keep all changes']{
+            cursor: pointer;
+            padding: 7px 15px;
+            background-color: darkblue;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update View</title>
+</head>
+<body>
+    <form method="POST" action='.'>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type='submit' value='keep all changes'><br><br>
+        {% if link_cancel %}
+            <a href='/my-products/'>Cancel !!!</a> <br><br>
+        {% endif %}
+        {% if delete_url %}
+            <a href='{{delete_url}}'>Delete this item</a> <br><br>
+        {% endif %}
+    </form>
+</body>
+</html>

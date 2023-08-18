@@ -1,0 +1,50 @@
+*,*:before,*:after{
+    box-sizing: border-box;
+}
+body,html{
+    height: 100%;
+}
+
+h3{
+    color: darkred;
+    background-color: rgba(255, 255, 0, 0.847);
+    padding: 30px;
+    border-radius: 30px;
+    border: 15px inset black;
+}
+nav{
+    color: rgba(255, 255, 0, 0.847);
+    background-color: darkgreen;
+    padding: 10px;
+    border-radius: 30px;
+    border: 15px outset black;
+}
+a{
+    font-family: 'Kanit', sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 25;
+}
+.intro{
+    color: darkcyan;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+}
+.intro_cuatro{
+    background-color: darkturquoise;
+    border: 15px outset darkgreen;
+    border-radius: 50px;
+    padding: 15px;
+    font-size: 20;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 900;
+    color: darkblue;
+    margin: 15px;
+}
+img{
+    margin: 15px;
+    border: 15px double darkslategrey;
+    border-radius: 25px;
+    padding: 15px;
+    background-image:radial-gradient(darkgoldenrod,darkcyan);
+}

@@ -1,0 +1,31 @@
+<!--comment-->
+<form method="POST" action='.'>
+    {% csrf_token %}
+    {{ form.as_p}} <hr>
+    {{ form_test.as_p}} <hr>
+    {{ form_product.as_p}} 
+    <input type='submit' value='subir'>
+</form>
+<hr>
+<h1>Formset View</h1>
+
+<form action='' method='POST'>
+    {% csrf_token %}
+    {{test_form.management_form}}
+    {% for form in test_form %}
+        <div>
+           {{ form.as_p }}
+           <br>
+        </div>
+    {% endfor %}
+
+    <input type='submit' value='subir'>
+</form>
+<hr>
+<h1>The Last One</h1>
+<form method="POST" action='.'>
+    {% csrf_token %}
+    {{ context.as_p}} 
+    <input type='submit' value='subir'>
+</form>
+

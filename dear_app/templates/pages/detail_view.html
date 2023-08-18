@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href="{% static 'dear_app/detail.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Akatab:wght@600;700;800;900&family=Kanit:ital,wght@0,700;1,900&family=Orbitron:wght@700&family=Oswald:wght@500;700&family=REM&display=swap" rel="stylesheet">
+    <title>Detail View</title>
+</head>
+<body>
+    {% include 'pages/messages.html' %}
+
+    <h1>Product or title item - descriptions</h1>
+
+    <h2>{{product.title}} ${{product.price}}</h2>
+    <h2>Description: {{product.description}} // Color: {{product.color}}</h2>
+    <h2>available in markets like: {{product.seller}}</h2>
+    <h2>Slug item: {{product.slug}}</h2>
+    <nav>
+        <ul>
+            <li><a href='/delete_view/{{product.id}}'>Delete item</a> <br><br></li>
+            <li><a href='/update_view/{{product.id}}'>Upgrade item</a> <br><br></li>
+            <li><a href='/list_view/'>Back principal page</a> <br></li>
+        </ul>
+    </nav>
+</body>
+</html>

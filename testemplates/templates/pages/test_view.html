@@ -1,0 +1,62 @@
+<!--Comment-->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/testemplates/main.css' %}">
+    <title>Test_view</title>
+</head>
+<body>
+    <h1>{{view_title|title}}</h1>
+    <h1>{{view_title|lower}}</h1>
+    <br><br>
+    {{first_num|add:300}}
+    <br><br>
+    {{first_num|add:sec_num}}
+    <br><br>
+    {{tod|date:'D d M Y f a'}}
+
+    <ul>
+        {% for obj in my_list %}
+        <li {% if forloop.first %}class='bold'{% endif %}>
+            {{forloop.counter}} {{obj}}
+        </li>
+        {% endfor %}
+    </ul>
+
+    <ul>
+        {% for obj in my_list %}
+        <li {% if forloop.counter|divisibleby:2 %}class='bold'{% endif %}>
+            {{forloop.counter}} {{obj}}
+        </li>
+        {% endfor %}
+    </ul>
+
+    <ul>
+        {% for obj in my_list %}
+        <li {% if forloop.counter|add:1|divisibleby:2 %}class='bold'{% endif %}>
+            {{forloop.counter}} {{obj}}
+        </li>
+        {% endfor %}
+    </ul>
+
+    <ul>
+        {% for obj in my_list %}
+        <li class='{% cycle "" "" "bold" %}'>
+            {{forloop.counter}} {{obj}}
+        </li>
+        {% endfor %}
+    </ul>
+
+    <ul>
+        {% for obj in my_list %}
+        <li class='{% cycle "" "" "" "bold" %}'>
+            {{forloop.counter}} {{obj}}
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

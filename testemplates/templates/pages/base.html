@@ -1,0 +1,19 @@
+<!--comm-->
+<!DOCTYPE html>
+<head>
+    <title>
+        {%block title%}
+        Mi título en base.html
+        {%endblock title%}
+    </title>
+</head>
+
+<html>
+    <body>
+        {% include 'pages/messages.html' %}
+
+        {%block content%}
+        Contenido de base html
+        {%endblock content%}
+    </body>
+</html>

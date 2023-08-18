@@ -1,0 +1,52 @@
+*,*:before,*:after{
+	box-sizing: border-box;
+}
+body,html{
+    height: 100%;
+}
+body{
+	padding: 0;
+	margin: 0;
+	font-family: 'REM', sans-serif;
+	background-image: linear-gradient(to top right, darkred, brown,darkred);
+    color: whitesmoke;
+}
+
+h1{
+	margin-left: 500px;
+	padding-bottom: 70px;
+	padding-top: 30px;
+	/* margin-top: 70px; ¡WE STILL HAVE PROBLEMS WITH THIS PROPERTY! */
+}
+form{
+	font-weight: bold;
+	position: relative;
+	left: 700px;
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+	background-color: whitesmoke;
+	border-radius: 35px;
+	color: red;
+	background-position: center center;
+	width: 500px;
+	padding: 30px 40px;
+}
+input{
+	width: 120px;
+	padding: 15px 30px;
+	font-weight: bold;
+	border-radius: 20px;
+}
+input:hover{
+	cursor: pointer;
+}
+a{
+	text-decoration: none;
+	background-color: brown;
+	color: antiquewhite;
+	border: 3px solid black;
+	width: 200px;
+	padding: 10px 25px;
+	border-radius: 20px;
+}

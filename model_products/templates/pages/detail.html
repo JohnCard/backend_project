@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href="{% static 'dear_app/detail.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Akatab:wght@600;700;800;900&family=Kanit:ital,wght@0,700;1,900&family=Orbitron:wght@700&family=Oswald:wght@500;700&family=REM&display=swap" rel="stylesheet">
+    <title>Detail View</title>
+</head>
+<body>
+    <br><br>
+    <h2>Producto: {{object.title}} - {{object.id}} - {{object.slug}} </h2>
+    <br><br>
+    <h2>Color de {{object.title}}: {{object.color}}</h2>
+    <br><br>
+    <a href='/my-products/'>Back to items list</a>
+    <br><br>
+    <nav>
+    {% if form %}
+        {% include 'pages/forms.html' with form=form delete_url=object.get_delete_url  %}
+    {% endif %}
+    </nav>
+</body>
+</html>

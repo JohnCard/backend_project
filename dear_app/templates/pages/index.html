@@ -1,0 +1,52 @@
+{% load static  %}
+{% include 'pages/messages.html' %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello world</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,700;1,900&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static '/dear_app/main.css' %}">
+</head>
+<body>
+        <h3>Primer pagina para nuestro ed-commerce</h3>
+        <hr>
+        <nav>
+            <ul>
+                <li><a href="{%url 'index'%}">Home or index.html</a></li>
+                {% comment %} <li><a href="{%url 'creating_view.html'%}">Formularios</a></li> {% endcomment %}
+                <li><a href="{%url 'first_user'%}">first user</a></li>
+                {% comment %} <li><a href="{%url 'detail_view'%}">detail view</a></li> {% endcomment %}
+                <li><a href="{%url 'test'%}">text</a></li>
+                <li><a href="{%url 'home'%}">to home</a></li>
+                <li><a href="{%url 'redirection_two'%}">to redirection_two</a></li>
+                <li><a href="{%url 'product_models'%}">product_models</a></li>
+            </ul>
+        </nav>
+
+        <h3>Lista de productos</h3>
+        
+
+    <div class='intro'>En esta parte nos enfocaremos en darle la mejor experiencia a cualquier usario que se disponga a entrar a nuestro sitio web!!!</div>
+    <hr>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Python.svg/640px-Python.svg.png" alt="Linea de python" width='400' height='400'>
+
+    <img src='https://cdn-icons-png.flaticon.com/512/4299/4299932.png' alt='Linea de nuestro ED-commerce' width='400' height='400'>
+
+    <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png' width='400' height='400'>
+
+    <img src='https://img.freepik.com/free-icon/snakes_318-368381.jpg' width='400' height='400'>
+
+    <img src='https://files.realpython.com/media/Get-Started-With-Django_Watermarked.15a1e05597bc.jpg' width='400' height='400'>
+
+    <img src='https://assets-global.website-files.com/5b6901669b93d7837e36dc4c/615e1104ffbf5ae592265cc7_python-django.png' width='400' height='400'>
+
+    {% block  content %}
+    {% endblock %}
+    {% comment %} <script src="/dear_app/static/js/index.js"></script> {% endcomment %}
+</body>
+</html>

@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href="{% static 'dear_app/creating.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Akatab:wght@600;700;800;900&family=Kanit:ital,wght@0,700;1,900&family=Orbitron:wght@700&family=Oswald:wght@500;700&family=REM&display=swap" rel="stylesheet">
+    <title>Update View</title>
+</head>
+<body>
+    {%include 'pages/messages.html'%}
+
+    <h1>Create a new item or product</h1>
+
+    <form method="POST" action='.'>
+    {% csrf_token %}
+    {{ form.as_p}}
+    <input type='submit' value='Crear'>
+    <a href='/list_view/'>Cancelll !!!</a>
+    </form>
+</body>
+</html>
