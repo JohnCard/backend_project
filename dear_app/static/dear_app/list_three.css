@@ -1,15 +1,18 @@
 /* My default settings */
+:root{
+    --first: 25px;
+}
 *,*:before,*:after{
 box-sizing: border-box;
 }
 body,html{
-    height: 100%;
+    height: 3500px;
 }
 body{
     padding: 0;
     margin: 0;
     font-family: 'REM', sans-serif;
-    background-image: linear-gradient(to bottom, darkslategrey, darkcyan,darkslategrey,darkcyan);
+    background-image: linear-gradient(to bottom, darkslategrey, darkcyan);
     color: darkblue;
 }
 div{
@@ -17,13 +20,22 @@ div{
     display: flex;
     flex-direction: row;
     gap: 80px;
-    padding: 25px 40px;
+    padding: var(--first) 40px;
     align-items: center;
 }
 div a,input{
     text-decoration: none;
-    font-size: 25px;
+    font-size: var(--first);
+    padding: 15px;
+    border-radius: 25px;
 }
+
+div a{
+    background-color: darkred; 
+    border: dashed white 3px;
+    padding: 20px;
+}
+
 ol{
     margin: 30px;
     display: flex;

@@ -3,7 +3,7 @@
 <head>
     <title>
         {%block title%}
-        Mi título en base.html
+        My base title written in html lenguage
         {%endblock title%}
     </title>
 </head>
@@ -12,6 +12,8 @@
     <body>
         {% include 'pages/messages.html' %}
 
+        {% comment %} Recuerda que es el ectends tansolo funcionará si en la platilla que se le es invocada esta 
+        misma no teine un block content {% endcomment %}
         {%block content%}
         Contenido de base html
         {%endblock content%}

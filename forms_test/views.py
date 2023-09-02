@@ -11,10 +11,10 @@ def seach_form(request):
     form_product = ProductModel(request.POST or None)
     ###### 3er 
     initial_data = {
-        'texto': 'texto inicial',
-        'booleano': True,
-        'entero': 100,
-        'correo': 'test@test.com'
+        'un_texto': 'texto inicial',
+        'bool_field': True,
+        'int_field': 100,
+        'corr': 'test@test.com'
     }
     form_test = TestForm(request.POST or None, initial=initial_data)
     ###### 4er 

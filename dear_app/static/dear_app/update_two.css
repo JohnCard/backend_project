@@ -50,14 +50,16 @@ form{
 
 input{
     padding: 7px 28px;
-    color: gray;
+    color: grey;
     border-radius: 5px;
     border-color: var(--var3);
     font-size: 20px;
 }
-input:hover{
+input:hover,textarea:hover{
     cursor: pointer;
     font-weight: bold;
+    color: black;
+    background-color: white;
 }
 label{
     margin-right: 30px;

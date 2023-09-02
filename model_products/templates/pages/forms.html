@@ -3,12 +3,27 @@
 <html lang="en">
 <head>
     <style>
+        *,*:before,*:after{
+            box-sizing: border-box;
+            }
+        body,html{
+            height: 100%;
+        }
+        body{
+            padding: 0;
+            margin: 0;
+            font-family: 'REM', sans-serif;
+            background-image: linear-gradient(to top right, darkblue, black,darkblue);
+            color: white;
+        }
         form{
             background-color: darkslategrey;
             padding: 15px 35px;
             width: 900px;
             display: inline-block;
             border-radius: 30px;
+            margin: 400px 560px;
+            border: solid white 2px;
         }
         input{
             background-color: dimgrey;

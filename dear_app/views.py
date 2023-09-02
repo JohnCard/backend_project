@@ -115,5 +115,4 @@ def redirection_two(request):
     return HttpResponseRedirect('/home')
 
 def product_models(request):
-    print(User.objects.all())
     return HttpResponse('Un ecommerce personalizado')

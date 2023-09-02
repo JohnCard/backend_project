@@ -1,7 +1,7 @@
 #comment
 from django import forms 
 from .models import Product, User
-from .functions import validate, validate_email
+from .functions import validate
 
 MY_CHOICES = [
     ('DB-VAL1', 'OPT1'),
@@ -53,16 +53,10 @@ class UserModel(forms.ModelForm):
         return name
     
     def clean_sec_nm(self, *args, **kwargs):
-        sec_name = self.cleaned_data.get('sec_nm')
-        if validate(sec_name) > 0 and len(sec_name) < 12: 
+        sec_nm = self.cleaned_data.get('sec_nm')
+        if validate(sec_nm) > 0: 
             raise forms.ValidationError('Este campo no es válido como apellido!!!')
-        return sec_name
-
-    def clean_gm(self, *args, **kwargs):
-        email = self.cleaned_data.get('gm')
-        if validate_email(email) > 0 and len(email) < 10:
-            raise forms.ValidationError('Este campo no es válido como correo electrónico!!!')
-        return email
+        return sec_nm
     
     def clean_psw(self, *args, **kwargs):
         pswd = self.cleaned_data.get('psw')
@@ -78,7 +72,7 @@ class UserModel(forms.ModelForm):
     
 class ProductModel(forms.ModelForm):
     labels = {
-        'title': 'Mi etiqueta para nuestro title ó título',
+        'title':'Mi etiqueta',
         'slug': 'Nuestra etiqueta para nuestro slug',
         'price': 'Nuestra etiqueta para nuestro precio ó el atributo o elemento price'    
     }

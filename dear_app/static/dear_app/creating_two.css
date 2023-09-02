@@ -48,6 +48,7 @@ form{
     font-weight: bold;
     position: relative;
     top: 70px;
+    border: solid white 2px;
 }
 
 input{
