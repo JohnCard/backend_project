@@ -1,21 +1,33 @@
 <!--comment-->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href="{% static 'form-sec.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Akatab:wght@600;700;800;900&family=Kanit:ital,wght@0,700;1,900&family=Orbitron:wght@700&family=Oswald:wght@500;700&family=REM&display=swap" rel="stylesheet">
+    <title>HomeWork</title>
+</head>
+<body>
 <form method="POST" action='.'>
     {% csrf_token %}
-    <h1>form</h1>
+    <h1>First form</h1>
     {{ form.as_p}} <hr>
-    <h1>form_test</h1>
+    <h1>Second form</h1>
     {{ form_test.as_p}} <hr>
-    <h1>form_product</h1>
+    <h1>Third Form</h1>
     {{ form_product.as_p}} 
-    <input type='submit' value='subir'>
+    <input type='submit' value='SUBMIT'>
 </form>
 <hr>
-<h1>Formset View</h1>
+<h1>Formset View - Fourth one</h1>
 
 <form action='' method='POST'>
     {% csrf_token %}
     {{test_form.management_form}}
-    <h1>form cicle</h1>
+    <h1>The Form cicles</h1>
     {% for form in test_form %}
         <div>
            {{ form.as_p }}
@@ -23,13 +35,14 @@
         </div>
     {% endfor %}
 
-    <input type='submit' value='subir'>
+    <input type='submit' value='SUBMIT'>
 </form>
 <hr>
-<h1>The Last One</h1>
+<h1>The Last One - Ultimate Forms</h1>
 <form method="POST" action='.'>
     {% csrf_token %}
     {{ context.as_p}} 
-    <input type='submit' value='subir'>
+    <input type='submit' value='SUBMIT'>
 </form>
-
+</body>
+</html>

@@ -20,9 +20,9 @@ class TestForm(forms.Form):
     bool_field = forms.BooleanField()
     int_field = forms.IntegerField()
     corr = forms.EmailField()
-    opciones = forms.CharField(label='Selecciona un opción', widget=forms.Select(choices=MY_CHOICES))
-    opciones_radio = forms.CharField(label='Selecciona un opción', widget=forms.RadioSelect(choices=MY_CHOICES))
-    opciones_checkbox = forms.CharField(label='Selecciona un opción', widget=forms.CheckboxSelectMultiple(choices=MY_CHOICES))
+    opciones = forms.CharField(label='Select an option', widget=forms.Select(choices=MY_CHOICES))
+    opciones_radio = forms.CharField(label='Select an option', widget=forms.RadioSelect(choices=MY_CHOICES))
+    opciones_checkbox = forms.CharField(label='Select an option', widget=forms.CheckboxSelectMultiple(choices=MY_CHOICES))
     
     def clean_int_field(self, *args, **kwargs):
         int_field = self.cleaned_data.get("int_field")
@@ -71,12 +71,14 @@ class UserModel(forms.ModelForm):
         return conf
     
 class ProductModel(forms.ModelForm):
-    labels = {
-        'title':'Mi etiqueta',
-        'slug': 'Nuestra etiqueta para nuestro slug',
-        'price': 'Nuestra etiqueta para nuestro precio ó el atributo o elemento price'    
-    }
+    
     class Meta:
+        labels = {
+        'title':'My title label',
+        'slug': 'Slug label',
+        'price': 'Price label'    
+        }
+        
         model = Product
         fields = [
             'title',
