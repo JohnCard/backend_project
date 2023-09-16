@@ -54,7 +54,7 @@
         {{ form.as_p }}
         <input type='submit' value='keep all changes'><br><br>
         {% if link_cancel %}
-            <a href='/my-products/'>Cancel !!!</a> <br><br>
+            <a href={{link_cancel}}>Cancel !!!</a> <br><br>
         {% endif %}
         {% if delete_url %}
             <a href='{{delete_url}}'>Delete this item</a> <br><br>

@@ -42,8 +42,7 @@ INSTALLED_APPS = [
     'forms_test',
     'testemplates',
     'api',
-    'api_sec',
-    'user_app'
+    'user_app',
 ]
 
 MIDDLEWARE = [
@@ -133,12 +132,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 REST_FRAMEWORK = {
     # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     # 'PAGE_SIZE': 100,
-    'DEFAULT_RENDERER_CLASSES':[
-        'rest_framework.renderers.JSONRenderer'
-    ],
+    # 'DEFAULT_RENDERER_CLASSES':[
+    #     'rest_framework.renderers.JSONRenderer'
+    # ],
     'DEFAULT_AUTHENTICATION_CLASSES':[
      # 'rest_framework.authentication.BasicAuthentication',
-          'rest_framework.authentication.TokenAuthentication',
+           'rest_framework.authentication.TokenAuthentication',
             # 'rest_framework_simplejwt.authentication.JWTAuthentication'
     ]
 }

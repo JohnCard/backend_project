@@ -9,15 +9,14 @@ from django.contrib.sessions.models import Session
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 
-# from django.conf import settings
+from django.conf import settings
 # User = settings.AUTH_USER_MODEL
-# session_key = 'pauzhhgqhy7cyw82g85ksrfdr6jxqcxa'
-# session = Session.objects.get(session_key=session_key)
-# session_data = session.get_decoded()
-# uid = session_data.get('_auth_user_id')
+session_key = 'pauzhhgqhy7cyw82g85ksrfdr6jxqcxa'
+session = Session.objects.get(session_key=session_key)
+session_data = session.get_decoded()
+uid = session_data.get('_auth_user_id')
 # user = User.objects.get(id=uid)
-
-# print(User.objects.values())
+# print(User.objects.all())
 # print(f'Second {User.objects.filter(id=1)}')
 # print(f'Third One {User.objects.get(id=1).last_login}')
 

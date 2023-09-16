@@ -24,6 +24,5 @@ urlpatterns = [
     path('',include('forms_test.urls')),
     path('',include('testemplates.urls')),
     path('',include('api.urls')),
-    path('',include('api_sec.urls')),
-    path('',include('user_app.urls'))
+    path('',include('user_app.urls')),
 ]

@@ -5,8 +5,8 @@ class TemplateTitleMixin(object):
     def get_context_data(self,*args,**kwargs):
         context = super().get_context_data(*args,**kwargs)
         context['title'] = self.get_title()
+        print(context)
         return context
-    
     def get_title(self):
         return self.title
 
@@ -16,6 +16,7 @@ class TemplateTitleMixinSc(object):
     def get_context_data(self,*args,**kwargs):
         context = super().get_context_data(*args,**kwargs)
         context['link_cancel'] = self.get_link_cancel()
+        print(context)
         return context
     
     def get_link_cancel(self):
