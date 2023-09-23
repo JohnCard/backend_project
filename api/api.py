@@ -1,10 +1,11 @@
 from .models import Project
 from rest_framework import viewsets, permissions, status
-from .serializers import ProjectSerializer
+from .serializers import ProjectSerializer,ProjectSerializerSc
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.models import AnonymousUser
 from rest_framework.views import APIView
+from rest_framework.decorators import api_view
 
 class ProjectView(viewsets.ModelViewSet):
     
@@ -14,9 +15,9 @@ class ProjectView(viewsets.ModelViewSet):
     
 class ProjectViewSC(APIView):
     
-    def get(self,request):
+    def get(self,request,id):
         try:
-            obj = Project.objects.get(id=request.id)
+            obj = Project.objects.get(id=id)
         except Project.DoesNotExist:
             msg = {'msg':'message not found'}
             return Response(msg,status.HTTP_404_NOT_FOUND)
@@ -31,9 +32,9 @@ class ProjectViewSC(APIView):
             return Response(serializer.data,status.HTTP_201_CREATED)
         return Response(serializer.data,status.HTTP_400_BAD_REQUEST)
     
-    def put(self,request):
+    def put(self,request,id):
         try:
-            obj = Project.objects.get(id=request.id)
+            obj = Project.objects.get(id=id)
         except Project.DoesNotExist:
             msg = {'Message':'this item doesn´t exist'}
             return Response(msg, status=status.HTTP_404_NOT_FOUND)
@@ -44,9 +45,9 @@ class ProjectViewSC(APIView):
             return Response(serializer.data,status=status.HTTP_205_RESET_CONTENT)
         return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
     
-    def patch(self,request):
+    def patch(self,request,id):
         try:
-            obj = Project.objects.get(id=request.id)
+            obj = Project.objects.get(id=id)
         except Project.DoesNotExist:
             msg = {'Message':'this item doesn´t exist'}
             return Response(msg, status=status.HTTP_404_NOT_FOUND)
@@ -59,7 +60,7 @@ class ProjectViewSC(APIView):
     
     def delete(self,request):
         try:
-            obj = Project.objects.get(id=request.id)
+            obj = Project.objects.get(id=id)
         except Project.DoesNotExist:
             msg = {'Message':'this item doesn´t exist'}
             return Response(msg, status=status.HTTP_404_NOT_FOUND)
@@ -118,3 +119,30 @@ class ProjectViewSCND(viewsets.ModelViewSet):
         if serializer.is_valid():
             return Response(request.data)
         return Response("wrong parameters")
+
+@api_view(['GET','POST','DELETE','PUT'])
+def fourth_project(request,pk=None):
+    if request.method == 'GET':
+        project = Project.objects.filter(id=pk).first()
+        serializer = ProjectSerializer(project)
+        return Response(serializer.data)
+    
+    elif request.method == 'PUT':
+        project = Project.objects.filter(id=pk).first()
+        serializer = ProjectSerializer(project,data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors)
+    
+    elif request.method == 'POST':
+        serializer = ProjectSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors)
+    
+    elif request.method == 'DELETE':
+        project = Project.objects.filter(id=pk).first()
+        project.delete()
+        return Response('Deleted')

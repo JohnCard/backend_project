@@ -34,10 +34,13 @@ class ProductList(generics.ListAPIView):
         IsAuthenticated
     ]
     
-class ProductForm(CreateView,TemplateTitleMixinSc):
+class ProductForm(CreateView,TemplateTitleMixinSc,ListView):
     form_class = ProductForm
     template_name = 'pages/forms.html'
     link_cancel = '/my-products/'
+    
+    def get_queryset(self):
+        return Product.objects.filter(user=self.request.user)
     
     def form_valid(self,form):
         form.instance.user = self.request.user
