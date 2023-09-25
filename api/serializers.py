@@ -13,3 +13,7 @@ class ProjectSerializerSc(serializers.Serializer):
     description = serializers.CharField(label='Enter description')
     technology = serializers.CharField(label='Enter technology')
     
+class ProjectSerializerTr(serializers.ModelSerializer):
+    class Meta:
+        model = Project
+        fields = '__all__'
