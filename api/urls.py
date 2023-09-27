@@ -9,7 +9,7 @@ router.register('api/projects', ProjectView,'Projects')
 router.register('api/projectscnd', ProjectViewSCND,'ProjectSCND')
 
 urlpatterns = [
-    path('first_api/',ProductAPIView.as_view()),
+    path('first_api/<int:id>',ProductAPIView.as_view()),
     path('sec_api_view/<int:id>',ProjectViewSC.as_view()),
     path('third_api/',ProjectThrd.as_view()),
     path('fourth_item/<int:pk>',fourth_project,name='fourth_project'),

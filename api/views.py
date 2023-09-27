@@ -11,19 +11,16 @@ import json
 
 class ProductAPIView(views.APIView):
     
-    def get(self,request):
-        projects = Project.objects.all().values()
-        return Response({'Message':'List of projects','List':projects})
+    def get(self,request,id):
+        try:
+            return Response({'Project':Project.objects.filter(id=id).values()})
+        except:
+            projects = Project.objects.all().values()
+            return Response({'Message':'List of projects','List':projects})
     
     def post(self, request):
-        serializer_pro = ProjectSerializerSc(data=request.data)
-        if(serializer_pro.is_valid()):
-            Project.objects.create(id=serializer_pro.data.get('id'),
-                                   title=serializer_pro.data.get('title'),
-                                   description=serializer_pro.data.get('description'),
-                                   technology=serializer_pro.data.get('technology'))
-        project = Project.objects.all().filter(id=request.data['id']).values()
-        return Response({'Message':'New Done Project','Project':project})
+        
+        return Response({'Message': request.data['title']})
     
     def put(self, request):
         content={
@@ -56,11 +53,7 @@ class ProjectThrd(views.APIView):
                 proj = project[0]
                 datos = {'message':'Succes','Projects':proj}
         else:
-            projects = list(Project.objects.all().values())
-            if len(projects) > 0:
-                datos = {'message':'Succes','Projects':projects}
-            else:
-                datos = {'message':'Not found...'}
+            datos = {'message':'Not found...'}
             return JsonResponse(datos)
     
     def post(self,request):

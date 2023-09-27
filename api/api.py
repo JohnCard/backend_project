@@ -6,7 +6,8 @@ from django.shortcuts import get_object_or_404
 from django.contrib.auth.models import AnonymousUser
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view
-
+import json
+from django.http.response import JsonResponse
 class ProjectView(viewsets.ModelViewSet):
     
     queryset = Project.objects.all()
@@ -16,57 +17,43 @@ class ProjectView(viewsets.ModelViewSet):
 class ProjectViewSC(APIView):
     
     def get(self,request,id):
-        try:
-            obj = Project.objects.get(id=id)
-        except Project.DoesNotExist:
-            msg = {'msg':'message not found'}
-            return Response(msg,status=status.HTTP_404_NOT_FOUND)
-        
-        serializer = ProjectSerializer(obj)
-        return Response(serializer.data,status=status.HTTP_200_OK)
+        if(id>0):
+            project = list(Project.objects.filter(id=id).values())
+            if(len(project)>0):
+                proj = project[0]
+                datos = {'message':'Succes','Projects':proj}
+        else:
+            datos = {'message':'Not found...'}
+            return Response(datos)
     
     def post(self,request):
-        serializer = ProjectSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data,status=status.HTTP_201_CREATED)
-        return Response(serializer.data,status=status.HTTP_400_BAD_REQUEST)
+        jd = json.loads(request.body)
+        Project.objects.create(id=jd['id'],title=jd['title'],description=jd['description'],technology=jd['technology'])
+        data = {'Message':'Succes'}
+        return Response(data)
     
     def put(self,request,id):
-        try:
-            obj = Project.objects.get(id=id)
-            
-        except Project.DoesNotExist:
-            msg = {'Message':'this item doesn´t exist'}
-            return Response(msg, status=status.HTTP_404_NOT_FOUND)
-        
-        serializer = ProjectSerializer(obj, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data,status=status.HTTP_205_RESET_CONTENT)
-        return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
-    
-    def patch(self,request,id):
-        try:
-            obj = Project.objects.get(id=id)
-        except Project.DoesNotExist:
-            msg = {'Message':'this item doesn´t exist'}
-            return Response(msg, status=status.HTTP_404_NOT_FOUND)
-        
-        serializer = ProjectSerializer(obj, data=request.data,partial=True)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data,status=status.HTTP_205_RESET_CONTENT)
-        return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+        jd = json.loads(request.body)
+        project = list(Project.objects.filter(id=id).values())
+        if len(project)>0:
+            project = Project.objects.get(id=id)
+            project.title = jd['title']
+            project.description = jd['description']
+            project.technology = jd['technology']
+            project.save()
+            data = {'Message':'Succes'}
+        else:
+            data = {'Message':'Failed'}
+        return Response(data)
     
     def delete(self,request,id):
-        try:
-            obj = Project.objects.get(id=id)
-        except Project.DoesNotExist:
-            msg = {'Message':'this item doesn´t exist'}
-            return Response(msg, status=status.HTTP_404_NOT_FOUND)
-        obj.delete()
-        return Response({'Message':'succesfully operation (deleted)'},status=status.HTTP_204_NO_CONTENT)
+        project = list(Project.objects.filter(id=id).values())
+        if len(project)>0:
+            Project.objects.filter(id=id).delete()
+            data = {'Message':'Succes'}
+        else:
+            data = {'Message':'Failed'}
+        return Response(data)
     
 class ProjectViewSCND(viewsets.ModelViewSet):
     serializer_class = ProjectSerializer
@@ -121,7 +108,7 @@ class ProjectViewSCND(viewsets.ModelViewSet):
             return Response(request.data)
         return Response("wrong parameters")
 
-@api_view(['GET','POST','DELETE','PUT'])
+@api_view(['GET','POST','DELETE','PUT','PATCH'])
 def fourth_project(request,pk=None):
     if request.method == 'GET':
         project = Project.objects.filter(id=pk).first()
@@ -134,6 +121,13 @@ def fourth_project(request,pk=None):
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
+        return Response(serializer.errors)
+    
+    elif request.method == 'PATCH':
+        project = Project.objects.filter(id=pk).first()
+        serializer = ProjectSerializer(project,data=request.data,partial=True)
+        if serializer.is_valid():
+            return Response(request.data)
         return Response(serializer.errors)
     
     elif request.method == 'POST':

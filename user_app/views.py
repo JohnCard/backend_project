@@ -42,13 +42,11 @@ def registration_view_tk(request):
     
 @api_view(['GET'])
 def profile_view(request):
-    # MY USER KEY CHOICES:
     '''
+    MY USER KEY CHOICES:
     auth_token, date_joined, email, first_name, groups, id, is_active, is_staff, is_superuser, last_login, last_name, logentry, password, product, project, user_permissions, username
     '''
-    # user = User.objects.get(id=request.data['id'])
     user = request.user
-    print(user.is_authenticated)
     if user.is_authenticated:
         user_response = {
             'User name': user.username,
@@ -56,9 +54,8 @@ def profile_view(request):
             'id': user.pk
         }
     else:
-        user_response = {}
-    return Response(user_response)
-    
+        user_response = {'Message':'It didn´t works'}
+    return Response(user_response)  
         
 @api_view(['POST',])
 def registration_view_JW(request):
@@ -84,4 +81,3 @@ def registration_view_JW(request):
             return Response(serializer.errors)    
         
         return Response(data)
-
