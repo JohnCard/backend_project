@@ -1,0 +1,32 @@
+*,*:before,*:after{
+box-sizing: border-box;
+}
+body,html{
+    height: 100%;
+}
+body{
+    padding: 0;
+    margin: 0;
+    font-family: 'REM', sans-serif;
+    /* background-image: linear-gradient(to top right, red, black,darkblue); */
+    background-color: rgb(44, 116, 179);
+    color: rgb(10, 38, 71);
+}
+
+h1,h2{
+    margin-left: 60px;
+}
+nav{
+    background-color: rgb(32, 82, 149);
+    padding: 20px 40px;
+    position: relative;
+}
+a{
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 20px;
+    margin-left: 10px;
+}
+a:visited{
+    color: darkred;
+}

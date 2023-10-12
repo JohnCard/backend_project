@@ -1,0 +1,54 @@
+/* My default settings */
+:root{
+    --first: 25px;
+}
+*,*:before,*:after{
+box-sizing: border-box;
+}
+body,html{
+    height: 3500px;
+}
+body{
+    padding: 0;
+    margin: 0;
+    font-family: 'REM', sans-serif;
+    /* background-image: linear-gradient(to bottom, rgb(157, 192, 139), rgb(237, 241, 214)); */
+    background-color: rgb(157, 192, 139);
+    color: rgb(64, 81, 59);
+}
+div{
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 80px;
+    padding: var(--first) 40px;
+    align-items: center;
+}
+div a,input{
+    text-decoration: none;
+    font-size: var(--first);
+    padding: 15px;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+div a{
+    background-color: rgb(96, 153, 102); 
+    border: dashed white 3px;
+    padding: 20px;
+}
+
+ol{
+    margin: 30px;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 50px;
+    justify-content: space-evenly;
+    padding: 40px;
+}
+a{
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 17px;
+    color: rgb(64, 81, 59);
+}

@@ -8,7 +8,7 @@ from rest_framework.permissions import IsAuthenticated
 from django.contrib.sessions.models import Session
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
-
+  
 from django.conf import settings
 # User = settings.AUTH_USER_MODEL
 session_key = 'pauzhhgqhy7cyw82g85ksrfdr6jxqcxa'
@@ -30,9 +30,9 @@ class ProductList(generics.ListAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     pagination_class = ProductCPag
-    permission_classes = [
-        IsAuthenticated
-    ]
+    # permission_classes = [
+    #     IsAuthenticated
+    # ]
     
 class ProductForm(CreateView,TemplateTitleMixinSc,ListView):
     form_class = ProductForm
@@ -69,7 +69,6 @@ class UpdateProduct(UpdateView):
         self.object.get_edit_url()
         return '/my-products/'
         
-    
 class DetailProduct(DetailView):
     model = Product
     template_name = 'pages/detail.html'

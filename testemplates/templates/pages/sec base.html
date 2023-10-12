@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Default Title{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1>{% block header %}Header Content{% endblock %}</h1>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>Copyright &copy; 2023</p>
+    </footer>
+</body>
+</html>

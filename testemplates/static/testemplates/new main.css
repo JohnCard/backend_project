@@ -1,0 +1,41 @@
+/* And right here we init with the css style sheet */
+*:before,*:after {
+    box-sizing: border-box;
+}
+body,
+html {
+    height: 100%;
+}
+.bold {
+    color: black;
+}
+body {
+    background-color: rgb(255, 187, 92);
+    color: rgb(198, 61, 47)
+}
+div:not(.denied) {
+    display: flex;
+    flex-flow: row wrap;
+    font-weight: bold;
+    padding: 20px 0;
+    line-height: 35px;
+    background-color: #FF9B50;
+    border-radius: 25px;
+
+}
+.denied{
+    margin: 0 100px;
+    padding: 30px 40px;
+    border-radius: 30px;
+    background-color: #FF9B50;
+}
+p{
+    font-weight: bold;
+    font-size: 40px;
+}
+ul {
+    margin: 0 100px;
+    padding: 30px 40px;
+    background-color: rgb(226, 94, 62);
+    border-radius: 30px;
+}

@@ -1,21 +1,18 @@
-<!--comm-->
+{% load static %}
 <!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>
-        {%block title%}
-        My base title written in html lenguage
-        {%endblock title%}
-    </title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/testemplates/sec main.css' %}">
+    <title>Test_view</title>
 </head>
-
-<html>
-    <body>
+    <body> 
         {% include 'pages/messages.html' %}
 
-        {% comment %} Recuerda que es el ectends tansolo funcionará si en la platilla que se le es invocada esta 
-        misma no teine un block content {% endcomment %}
         {%block content%}
-        Contenido de base html
+            Contenido de base html
         {%endblock content%}
     </body>
 </html>

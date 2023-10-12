@@ -14,6 +14,11 @@ class ProductLOPag(LimitOffsetPagination):
     offset_query_param = 'start'
     
 class ProductCPag(CursorPagination):
-    page_size = 4
-    cursor_query_param = 'cur'
-    ordering = 'title'
+    page_size = 3
+    cursor_query_param = 'page index'
+    ordering = 'user'
+    max_page_size = 5
+    cursor_query_description = 'Were listening all items'
+    invalid_cursor_message = 'The provided cursor is invalid or does not exist.'
+    page_size_query_description = 'Number of results'
+    

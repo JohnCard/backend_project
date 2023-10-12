@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' href="{% static 'dear_app/delete_three.css' %}">
+    <link rel='stylesheet' href="{% static 'dear_app/delete.css' %}">
 
     <link href="https://fonts.googleapis.com/css2?family=Akatab:wght@600;700;800;900&family=Kanit:ital,wght@0,700;1,900&family=Orbitron:wght@700&family=Oswald:wght@500;700&family=REM&display=swap" rel="stylesheet">
 
@@ -17,9 +17,9 @@
     <h1>Delete - {{object.title}}</h1>
     <form method="POST" action='.'>
         {% csrf_token %}
-        Esta usted seguro de eliminar {{object.title}}
+        Are you sure to delete the {{object.title}}
         <span class="material-symbols-outlined">
-            warning <input type="submit" value='Confirmar'>
+            warning <input type="submit" value='Confirm'>
         </span>
         <a href='/update/{{object.slug}}/'>Cancell!!!</a>
     </form>

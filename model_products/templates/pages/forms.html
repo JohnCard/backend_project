@@ -13,11 +13,12 @@
             padding: 0;
             margin: 0;
             font-family: 'REM', sans-serif;
-            background-image: linear-gradient(to top right, darkblue, black,darkblue);
-            color: white;
+            {% comment %} background-image: linear-gradient(to top right, darkblue, black,darkblue); {% endcomment %}
+            background-color: rgb(69, 25, 82);
+            color: rgb(243, 159, 90);
         }
         form{
-            background-color: darkslategrey;
+            background-color: rgb(102, 37, 73);
             padding: 15px 35px;
             width: 900px;
             display: inline-block;
@@ -26,11 +27,11 @@
             border: solid white 2px;
         }
         input{
-            background-color: dimgrey;
+            background-color: rgb(174, 68, 90);
             padding: 7px 15px;
             font-weight: bold;
             font-size: 20px;
-            color:white;
+            color:rgb(243, 159, 90);
             border-radius: 15px; 
             margin-left: 20px;
         }
@@ -41,7 +42,15 @@
         [value='keep all changes']{
             cursor: pointer;
             padding: 7px 15px;
-            background-color: darkblue;
+            background-color: rgb(174, 68, 90);
+        }
+        a{
+            text-decoration: none;
+            background-color: rgb(174, 68, 90);
+            color: rgb(243, 159, 90);
+            font-weight: bold;
+            border-radius: 20%;
+            padding: 10px 25px;
         }
     </style>
     <meta charset="UTF-8">

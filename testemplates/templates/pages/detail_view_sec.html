@@ -1,5 +1,8 @@
 <!--comm-->
 {% extends 'pages/base.html' %}
+
 {%block content%}
+<div>
 {% include 'pages/object_detail.html' with object_title='Producto X' price=666 created_at=today %}
+</div>
 {% endblock content%}
