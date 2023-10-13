@@ -15,7 +15,7 @@ class ProductLOPag(LimitOffsetPagination):
     
 class ProductCPag(CursorPagination):
     page_size = 3
-    cursor_query_param = 'page index'
+    cursor_query_param = 'page_index'
     ordering = 'user'
     max_page_size = 5
     cursor_query_description = 'Were listening all items'
