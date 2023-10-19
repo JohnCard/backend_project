@@ -29,10 +29,10 @@ class ProductList(generics.ListAPIView):
     
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
-    pagination_class = ProductCPag
-    # permission_classes = [
-    #     IsAuthenticated
-    # ]
+    pagination_class = ProductLOPag
+    permission_classes = [
+        IsAuthenticated
+    ]
     
 class ProductForm(CreateView,TemplateTitleMixinSc,ListView):
     form_class = ProductForm
