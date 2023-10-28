@@ -1,0 +1,31 @@
+*,*:before,*:after{
+    box-sizing: border-box;
+}
+body,html{
+    height: 5000px;
+}
+body{
+    background-color: rgb(4, 54, 74);
+    font-family: 'Press Start 2P', sans-serif;
+    color: rgb(100, 204, 197);
+}
+h1{
+    margin: 2% auto;
+    width: 45%;
+}
+form{
+    margin: 2% 3%;
+}
+input,select{
+    margin: .5% 1%;
+    border-radius: 35px;
+    padding: 10px 5% 10px 1%;
+    font-family: 'Press Start 2P', sans-serif;
+    background-color: rgb(23, 107, 135);
+    transition: padding 2s, font-size 2s;
+}
+[type='submit']:hover{
+    cursor: pointer;
+    padding: 17px 5% 17px 1%;
+    font-size: 20px;
+}

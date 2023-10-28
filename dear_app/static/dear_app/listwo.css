@@ -12,17 +12,18 @@ body{
     padding: 0;
     margin: 0;
     font-family: 'REM', sans-serif;
-    /* background-image: linear-gradient(to bottom, rgb(157, 192, 139), rgb(237, 241, 214)); */
     background-color: rgb(157, 192, 139);
     color: rgb(64, 81, 59);
 }
 div{
+    background-color: rgb(97, 130, 100);
+    border-radius: 40px;
     font-size: 20px;
     display: flex;
-    flex-direction: row;
-    gap: 80px;
+    flex-direction: column;
     padding: var(--first) 40px;
     align-items: center;
+    gap: 20px;
 }
 div a,input{
     text-decoration: none;

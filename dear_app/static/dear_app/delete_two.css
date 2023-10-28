@@ -1,0 +1,39 @@
+*,*:before,*:after{
+	box-sizing: border-box;
+}
+body,html{
+    height: 100%;
+}
+body{
+	padding: 0;
+	margin: 0;
+	font-family: 'Playpen Sans', cursive;
+	background-color: rgb(255, 0, 0);
+    color: rgb(0, 0, 0);
+}
+
+h1{
+	margin: 3% auto;
+	width: 500px;
+	background-color: rgb(149, 1, 1);
+	padding: 15px 35px;
+	border-radius: 20px;
+}
+form{
+	border-radius: 35px;
+	margin: auto auto;
+	width: 500px; /* Here we descovered the width and margin properties have something to do with it */
+	padding: 30px 40px;
+	background-color: rgb(149, 1, 1);
+}
+input,a{
+	text-decoration: none;
+	padding: 15px 30px;
+	border-radius: 20px;
+	color: rgb(61, 0, 0);
+	font-family: 'Playpen Sans', cursive;
+	margin: 4%;
+}
+input:hover{
+	cursor: pointer;
+}

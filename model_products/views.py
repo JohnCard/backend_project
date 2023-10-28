@@ -21,7 +21,7 @@ uid = session_data.get('_auth_user_id')
 # print(f'Third One {User.objects.get(id=1).last_login}')
 
 # Create your views here.
-from .mixins import TemplateTitleMixin,TemplateTitleMixinSc
+from .mixins import TemplateTitleMixin,TemplateCancel,LinkStyle
 from .models import Product
 from .forms import ProductForm, SecModelForm
 
@@ -34,10 +34,11 @@ class ProductList(generics.ListAPIView):
         IsAuthenticated
     ]
     
-class ProductForm(CreateView,TemplateTitleMixinSc,ListView):
+class ProductForm(CreateView,TemplateCancel,LinkStyle,ListView):
     form_class = ProductForm
     template_name = 'pages/forms.html'
     link_cancel = '/my-products/'
+    linkstyle = 'model_products/forms.css'
     
     def get_queryset(self):
         return Product.objects.filter(user=self.request.user)
@@ -74,9 +75,10 @@ class DetailProduct(DetailView):
     template_name = 'pages/detail.html'
     
     def get_queryset(self):
-        return Product.objects.filter(user=self.request.user)   
+        return Product.objects.filter(user=self.request.user)
     
 class DeleteProduct(DeleteView):
+    model = Product
     template_name = 'pages/delete.html'
     
     def get_queryset(self):

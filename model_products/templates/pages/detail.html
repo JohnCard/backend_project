@@ -2,44 +2,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
-        *,*:before,*:after{
-            box-sizing: border-box;
-            }
-        body,html{
-            height: 100%;
-        }
-        .container{
-            margin: 0 100px;
-        }
-        a{
-            text-decoration: none;
-            background-color: rgb(174, 68, 90);
-            color: rgb(243, 159, 90);
-            font-weight: bold;
-            border-radius: 20%;
-            padding: 10px 25px;
-        }
-    </style>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Akatab:wght@600;700;800;900&family=Kanit:ital,wght@0,700;1,900&family=Orbitron:wght@700&family=Oswald:wght@500;700&family=REM&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel='stylesheet' href="{% static 'dear_app/detail.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@700&display=swap" rel="stylesheet">
     <title>Detail View</title>
 </head>
 <body>
-    <div class='container'>
-        <br><br>
+    <div class="outer-container">
+        <div class="inner-container">
+            <br><br>    
         <h2>Producto: {{object.title}} - {{object.id}} - {{object.slug}} </h2>
         <br><br>
         <h2>Color de {{object.title}}: {{object.color}}</h2>
         <br><br>
+        <a href='/update/{{object.slug}}'>Update</a>
         <a href='/my-products/'>Back to items list</a>
         <br><br>
-    </div>
-    <nav>
+        <nav>
     {% if form %}
-        {% include 'pages/forms.html' with form=form delete_url=object.get_delete_url  %}
+        {% include 'pages/forms.html' with form=form delete_url=object.get_delete_url linkstyle='dear_app/detail.css'  %}
     {% endif %}
     </nav>
+        </div>
+    </div>
 </body>
 </html>

@@ -1,0 +1,45 @@
+*,*:before,*:after{
+    box-sizing: border-box;
+    }
+body,html{
+    height: 100%;
+}
+body{
+    background-color: rgb(7, 25, 82);
+    color: rgb(151, 254, 237);
+    font-family: 'Playpen Sans', cursive;
+}
+a{
+    text-decoration: none;
+    background-color: rgb(53, 162, 159);
+    border-radius: 20px;
+    padding: 10px 25px;
+}
+.outer-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* 100% viewport height for full-height container */
+}
+
+/* Style the inner-container */
+.inner-container {
+    background-color: rgb(11, 102, 106);
+    width: 25%;
+    padding: 3%;
+    border-radius: 40px;
+    text-align: center; /* Center the text content horizontally */
+}
+
+input{
+    padding: 20px;
+    border-radius: 20px;
+    margin: 0 2%;
+    background-color: rgb(100, 204, 197);
+    color: rgb(4, 54, 74);
+    font-family: 'Playpen Sans', cursive;
+}
+[type='submit']:hover{
+    font-size: 25px;
+    padding: 35px 40px;
+}

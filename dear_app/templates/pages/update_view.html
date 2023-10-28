@@ -4,21 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' href="{% static 'dear_app/update.css' %}">
-    <link href="https://fonts.googleapis.com/css2?family=Akatab:wght@600;700;800;900&family=Kanit:ital,wght@0,700;1,900&family=Orbitron:wght@700&family=Oswald:wght@500;700&family=REM&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href="{% static 'dear_app/update sec.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@700&display=swap" rel="stylesheet">
     <title>Update View</title>
 </head>
 <body>
     {% include 'pages/messages.html' %}
     <div>
         <h1>Upgrade the item: {{product.title}}</h1>
-        <a href='/detail_view/{{product.id}}'>Cancelll !!!</a>
     </div>
-    
     
     <form method='POST' action=''>
         {% csrf_token %}
         {{form.as_p}}
+        <a href='/detail_view/{{product.id}}'>Cancelll !!!</a>
         <input type='submit' value='Actualizar'>
     </form>
 </body>

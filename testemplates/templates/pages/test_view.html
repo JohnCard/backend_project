@@ -6,21 +6,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static '/testemplates/new main.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" href="{% static '/testemplates/mains.css' %}">
     <title>Test_view</title>
 </head>
 <body>
-    <div class='denied'>
+    <div class='denied first'>
         <h1>{{view_title|title}}</h1>
         <h1>{{view_title|lower}}</h1>
-        <br><br>
+        
         <p>{{first_num|add:300}}</p>
-        <br><br>
+        
         <p>{{first_num|add:sec_num}}</p>
-        <br><br>
+        
         <p>{{tod|date:'D d M Y f a'}}</p>
     </div>
-    <br><br><br>
 
     <div class='container'>
         <ul>

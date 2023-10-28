@@ -1,0 +1,18 @@
+*:before,*:after {
+    box-sizing: border-box;
+}
+body,html {
+    height: 100%;
+}
+body{
+    background-color: rgb(25, 4, 130);
+    font-family: 'Press Start 2P', sans-serif;
+    color: rgb(119, 82, 254);
+}
+ul,div{
+    margin: 3% auto;
+    background-color: rgb(142, 143, 250);
+    padding: 3% 4%;
+    border-radius: 30px;
+    width: 20%;
+}
