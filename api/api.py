@@ -24,7 +24,7 @@ class ProjectViewSC(APIView):
                 datos = {'message':'Succes','Projects':proj}
         else:
             datos = {'message':'Not found...'}
-            return Response(datos)
+        return Response(datos)
     
     def post(self,request):
         jd = json.loads(request.body)

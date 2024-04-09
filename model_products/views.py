@@ -46,7 +46,7 @@ class ProductForm(CreateView,TemplateCancel,LinkStyle,ListView):
     def form_valid(self,form):
         form.instance.user = self.request.user
         super().form_valid(form)
-        return HttpResponseRedirect(f'/my-products/')
+        return HttpResponseRedirect('/my-products/')
     
     def form_invalid(self, form):
         return super().form_invalid(form)

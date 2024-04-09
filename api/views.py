@@ -8,7 +8,6 @@ from django.http.response import JsonResponse
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 import json
-
 class ProductAPIView(views.APIView):
     
     def get(self,request,id):
