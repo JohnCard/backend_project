@@ -1,6 +1,6 @@
 #comment
 from django import forms 
-from .models import DigitalProduct, Product
+from .models import Product
 
 class SecModelForm(forms.ModelForm):
     class Meta:
@@ -8,7 +8,8 @@ class SecModelForm(forms.ModelForm):
         fields = [
             'title',
             'slug',
-            'color'
+            'color',
+            'price'
         ]
 
 class ProductForm(forms.ModelForm):
@@ -17,5 +18,6 @@ class ProductForm(forms.ModelForm):
         fields = [
             'title',
             'slug',
-            'color'
+            'color',
+            'price'
         ]

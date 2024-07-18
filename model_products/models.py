@@ -11,6 +11,7 @@ class Product(models.Model):
     slug = models.SlugField(unique=True)
     color = ColorField(default='#FF0000')
     created = models.DateTimeField(auto_now_add=True)
+    price = models.IntegerField(default=450)
     
     def __str__(self):
         return self.title
@@ -23,9 +24,3 @@ class Product(models.Model):
     
     def get_delete_url(self):
         return f'/update/{self.slug}/delete/'
-    
-    
-class DigitalProduct(Product):
-    class Meta:
-        proxy = True
-        

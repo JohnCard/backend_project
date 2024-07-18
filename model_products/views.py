@@ -26,7 +26,6 @@ from .models import Product
 from .forms import ProductForm, SecModelForm
 
 class ProductList(generics.ListAPIView):
-    
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     pagination_class = ProductLOPag
