@@ -4,20 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% comment %} define a stylesheet {% endcomment %}
     <link rel='stylesheet' href="{% static 'dear_app/update sec.css' %}">
+    {% comment %} font family link {% endcomment %}
     <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@700&display=swap" rel="stylesheet">
+    {% comment %} template title {% endcomment %}
     <title>Update View</title>
 </head>
 <body>
+    {% comment %} include a succes message {% endcomment %}
     {% include 'pages/messages.html' %}
     <div>
+        {% comment %} main page title {% endcomment %}
         <h1>Upgrade the item: {{product.title}}</h1>
     </div>
-    
+    {% comment %} template form {% endcomment %}
     <form method='POST' action=''>
         {% csrf_token %}
         {{form.as_p}}
-        <a href='/detail_view/{{product.id}}'>Cancelll !!!</a>
+        {% comment %} cancel operation {% endcomment %}
+        <a href='/detail_view/{{product.id}}'>Cancel</a>
+        {% comment %} submit input {% endcomment %}
         <input type='submit' value='Actualizar'>
     </form>
 </body>

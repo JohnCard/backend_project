@@ -1,48 +1,44 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView,CreateView,DetailView, UpdateView, DeleteView
-from rest_framework import generics, viewsets
-from .pagination import ProductPagination, ProductLOPag, ProductCPag
-from .serializers import ProductSerializer
-from rest_framework.permissions import IsAuthenticated
-##########
-from django.contrib.sessions.models import Session
-from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
-  
-from django.conf import settings
-# User = settings.AUTH_USER_MODEL
-session_key = 'pauzhhgqhy7cyw82g85ksrfdr6jxqcxa'
-session = Session.objects.get(session_key=session_key)
-session_data = session.get_decoded()
-uid = session_data.get('_auth_user_id')
-# user = User.objects.get(id=uid)
-# print(User.objects.all())
-# print(f'Second {User.objects.filter(id=1)}')
-# print(f'Third One {User.objects.get(id=1).last_login}')
-
-# Create your views here.
+from rest_framework import generics
+from rest_framework.permissions import IsAuthenticated
+from .pagination import ProductLimitOffPagination
+from .serializers import ProductSerializer
 from .mixins import TemplateTitleMixin,TemplateCancel,LinkStyle
 from .models import Product
-from .forms import ProductForm, SecModelForm
+from .forms import ProductForm, SecondModelForm
+# Create your views here.
 
 class ProductList(generics.ListAPIView):
+    # define queryset
     queryset = Product.objects.all()
+    # define serializer class
     serializer_class = ProductSerializer
-    pagination_class = ProductLOPag
+    # define pagination class
+    pagination_class = ProductLimitOffPagination
+    # define authentication class
     permission_classes = [
         IsAuthenticated
     ]
     
-class ProductForm(CreateView,TemplateCancel,LinkStyle,ListView):
+class ProductForm(CreateView, TemplateCancel, LinkStyle, ListView):
+    # define form class
     form_class = ProductForm
+    # define template
     template_name = 'pages/forms.html'
+    # define link class
     link_cancel = '/my-products/'
+    # define a stylesheet
     linkstyle = 'model_products/forms.css'
     
+    # define your queryset
     def get_queryset(self):
-        return Product.objects.filter(user=self.request.user)
+        product = Product.objects.filter(user=self.request.user)
+        return product
     
     def form_valid(self,form):
+        # define instance user
         form.instance.user = self.request.user
         super().form_valid(form)
         return HttpResponseRedirect('/my-products/')
@@ -51,37 +47,50 @@ class ProductForm(CreateView,TemplateCancel,LinkStyle,ListView):
         return super().form_invalid(form)
 
 class ProtectedListView(LoginRequiredMixin,TemplateTitleMixin,ListView):
+    # define model product
     model = Product
-    title = 'Productos fisicos'
+    # define title template
+    title = 'Products'
+    # define template
     template_name = 'pages/products.html'
     
     def get_queryset(self):
-        return Product.objects.filter(user=self.request.user)
+        product = Product.objects.filter(user=self.request.user)
+        return product
     
 class UpdateProduct(UpdateView):
-    form_class = SecModelForm
+    # define form class
+    form_class = SecondModelForm
+    # define template
     template_name = 'pages/detail.html'
     
     def get_queryset(self):
-        return Product.objects.filter(user=self.request.user)
+        product = Product.objects.filter(user=self.request.user)
+        return product
     
     def get_success_url(self):
         self.object.get_edit_url()
         return '/my-products/'
         
 class DetailProduct(DetailView):
+    # define model
     model = Product
+    # define template
     template_name = 'pages/detail.html'
     
     def get_queryset(self):
-        return Product.objects.filter(user=self.request.user)
+        product = Product.objects.filter(user=self.request.user)
+        return product
     
 class DeleteProduct(DeleteView):
+    # define model
     model = Product
+    # define template
     template_name = 'pages/delete.html'
     
     def get_queryset(self):
-        return Product.objects.filter(user=self.request.user)
+        product = Product.objects.filter(user=self.request.user)
+        return product
     
     def get_success_url(self):
         return '/my-products/'

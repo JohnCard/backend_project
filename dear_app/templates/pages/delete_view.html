@@ -6,25 +6,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href="{% static 'dear_app/delete_two.css' %}">
-
     <link href="https://fonts.googleapis.com/css2?family=Akatab:wght@600;700;800;900&family=Kanit:ital,wght@0,700;1,900&family=Orbitron:wght@700&family=Oswald:wght@500;700&family=REM&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,200" />
-    <title>Document</title>
+    {% comment %} delete view {% endcomment %}
+    <title>Delete view</title>
 </head>
 <body>
     {% include 'pages/messages.html' %}
-
     <h1>Delete - {{product.title}}</h1>
-
+    {% comment %} template form {% endcomment %}
     <form method='POST' action=''>
         {% csrf_token %}
+        {% comment %} warning message {% endcomment %}
         ¿Are you sure wanna the {{product.title}} item???
         <span class="material-symbols-outlined">
+            {% comment %} submit input {% endcomment %}
             warning <input type='submit' value='Delete item'>
         </span>
-        
-        <a href='/detail_view/{{product.id}}'>Cancelll !!!</a>
+        {% comment %} cancel button {% endcomment %}
+        <a href='/detail_view/{{product.id}}'>Cancel operation</a>
     </form>
 </body>
 </html>

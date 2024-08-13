@@ -2,7 +2,7 @@
 from django import forms 
 from .models import Product
 
-class SecModelForm(forms.ModelForm):
+class SecondModelForm(forms.ModelForm):
     class Meta:
         model = Product
         fields = [

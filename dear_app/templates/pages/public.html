@@ -7,15 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href="{% static 'dear_app/sec_public.css' %}">
-
+    {% comment %} font famyly link {% endcomment %}
     <link href="https://fonts.googleapis.com/css2?family=Akatab:wght@600;700;800;900&family=Kanit:ital,wght@0,700;1,900&family=Orbitron:wght@700&family=Oswald:wght@500;700&family=REM&display=swap" rel="stylesheet">
-
+    {% comment %} template title {% endcomment %}
     <title>Public view</title>
 </head>
 <body>
     {% include 'pages/messages.html' %}
     <div>
+        {% comment %} main title page {% endcomment %}
         <h1>Log in or sign in </h1>
+        {% comment %} go to login {% endcomment %}
         <a href="/admin/login/?next=/admin/">Registrarse</a>
     </div>
 </body>

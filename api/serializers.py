@@ -7,13 +7,17 @@ class ProjectSerializer(serializers.ModelSerializer):
         fields = ('id','title', 'description', 'technology', 'created_at')
         read_only_fields = ('created_at', )
         
-class ProjectSerializerSc(serializers.Serializer):
-    id=serializers.IntegerField(label='Enter Id project')
+class SecondProjectSerializer(serializers.Serializer):
+    # id project
+    id = serializers.IntegerField(label='Enter Id project')
+    # title project
     title = serializers.CharField(label='Enter Project name')
+    # description project
     description = serializers.CharField(label='Enter description')
+    # technology project
     technology = serializers.CharField(label='Enter technology')
     
-class ProjectSerializerTr(serializers.ModelSerializer):
+class ThirdProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Project
         fields = '__all__'

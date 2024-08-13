@@ -6,17 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href="{% static 'dear_app/third detail.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@700&display=swap" rel="stylesheet">
+    {% comment %} detail view {% endcomment %}
     <title>Detail View</title>
 </head>
 <body>
     {% include 'pages/messages.html' %}
-
+    {% comment %} template main title {% endcomment %}
     <h1>Product or title item - descriptions</h1>
-
+    {% comment %} product data {% endcomment %}
     <h2>{{product.title}} ${{product.price}}</h2>
     <h2>Description: {{product.description}} // Color: {{product.color}}</h2>
-    <h2>available in markets like: {{product.seller}}</h2>
     <h2>Slug item: {{product.slug}}</h2>
+    {% comment %} navigation choice links {% endcomment %}
     <nav>
         <ul>
             <li><a href='/delete_view/{{product.id}}'>Delete item</a> <br><br></li>

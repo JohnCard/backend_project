@@ -6,18 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href="{% static 'dear_app/update sec.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@700&display=swap" rel="stylesheet">
+    {% comment %} template title {% endcomment %}
     <title>Update View</title>
 </head>
 <body>
     {%include 'pages/messages.html'%}
-
     <h1>Create a new item or product</h1>
-
+    {% comment %} template form {% endcomment %}
     <form method="POST" action='.'>
     {% csrf_token %}
     {{ form.as_p}}
+    {% comment %} submit input {% endcomment %}
     <input type='submit' value='Create'>
-    <a href='/list_view/'>Cancelll !!!</a>
+    {% comment %} cancel operation {% endcomment %}
+    <a href='/list_view/'>Cancel</a>
     </form>
 </body>
 </html>

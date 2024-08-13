@@ -6,25 +6,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href="{% static 'dear_app/listwo.css' %}">
-
     <link href="https://fonts.googleapis.com/css2?family=Akatab:wght@600;700;800;900&family=Kanit:ital,wght@0,700;1,900&family=Orbitron:wght@700&family=Oswald:wght@500;700&family=REM&display=swap" rel="stylesheet">
+    {% comment %} template title {% endcomment %}
     <title>Document list view</title>
 </head>
 <body>
+    {% comment %} template header {% endcomment %}
     <div class='container'>
         <h1>List View</h1> 
        <a href='/creating_view/'>Create a new item or product for your E-commerce</a>
         {% include 'pages/messages.html' %}
         {% include 'pages/search.html' %}
     </div>
-    
+    {% comment %} init your item list {% endcomment %}
     <ol>
     {% for product in product_list %}
+    {% comment %} create a new element {% endcomment %}
         <li>
             <div>
+                {% comment %} product title {% endcomment %}
                 <a href='/detail_view/{{product.id}}'>{{product.title}}</a>
+                {% comment %} product price {% endcomment %}
                 <h3>Price: ${{product.price}}</h3>
+                {% comment %} product description {% endcomment %}
                 <h3>Description: {{product.description}}</h3>
+                {% comment %} slug product {% endcomment %}
                 <h3>Slug: {{product.slug}}</h3>
             </div>
         </li>
