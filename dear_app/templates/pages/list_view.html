@@ -14,7 +14,7 @@
     {% comment %} template header {% endcomment %}
     <div class='container'>
         <h1>List View</h1> 
-       <a href='/creating_view/'>Create a new item or product for your E-commerce</a>
+       <a href='/creating-view/'>Create a new item or product for your E-commerce</a>
         {% include 'pages/messages.html' %}
         {% include 'pages/search.html' %}
     </div>
@@ -25,7 +25,7 @@
         <li>
             <div>
                 {% comment %} product title {% endcomment %}
-                <a href='/detail_view/{{product.id}}'>{{product.title}}</a>
+                <a href='/detail-view/{{product.id}}'>{{product.title}}</a>
                 {% comment %} product price {% endcomment %}
                 <h3>Price: ${{product.price}}</h3>
                 {% comment %} product description {% endcomment %}

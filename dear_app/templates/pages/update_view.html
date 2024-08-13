@@ -23,7 +23,7 @@
         {% csrf_token %}
         {{form.as_p}}
         {% comment %} cancel operation {% endcomment %}
-        <a href='/detail_view/{{product.id}}'>Cancel</a>
+        <a href='/detail-view/{{product.id}}'>Cancel</a>
         {% comment %} submit input {% endcomment %}
         <input type='submit' value='Actualizar'>
     </form>

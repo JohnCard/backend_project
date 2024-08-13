@@ -19,7 +19,7 @@ def update_view(request, product_id=None):
         instance.save()
         # throw succes message
         messages.success(request,'Producto actualizado con éxito!!!')
-        return HttpResponseRedirect(f'/detail_view/{instance.id}')
+        return HttpResponseRedirect(f'/detail-view/{instance.id}')
     context = {
         'form': form,
         'product': instance
@@ -35,7 +35,7 @@ def delete_view(request, product_id):
         instance.delete()
         # throw succes message
         messages.success(request,'Producto eliminado con éxito!!!')
-        return HttpResponseRedirect('/list_view')
+        return HttpResponseRedirect('/list-view')
     context = {
         'product': instance
     }
@@ -60,8 +60,7 @@ def list_view(request):
             Q(title__icontains=query) |
             Q(price__icontains=query) |
             Q(description__icontains=query) |
-            Q(color__icontains=query) |
-            Q(product_dimensions__icontains=query)
+            Q(color__icontains=query) 
         )
     context = {'product_list':queryset}
     # ? authenticated user?
@@ -81,7 +80,7 @@ def creating_view(request):
         instance.save()
         # throw succes message
         messages.success(request, 'Producto creado con éxito')
-        return HttpResponseRedirect(f'/detail_view/{instance.id}')
+        return HttpResponseRedirect(f'/detail-view/{instance.id}')
     context = {
         'form': form
     }
